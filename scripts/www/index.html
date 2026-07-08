@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-immersive-translate-page-theme="light"><head>
+<title>3D小球跑酷游戏设计</title>
+<meta name="description" content="一款第三人称3D放置类闯关游戏，玩家通过预先放置道具应对障碍，控制小球在自动前进的格子地面上冲线获胜。共25关，采用黑白手绘风格。">
+<meta name="keywords" content="">
+<meta itemprop="image" content="https://job-manager-artifacts-online.cdn.bcebos.com/prod/artifacts/79f8f03d-60ff-4bd6-bb1a-59f0e20d938a/app-cs8u4lyq5p1e_web_1783434524049.png">
+
+<!-- Open Graph 协议 -->
+<meta property="og:title" content="3D小球跑酷游戏设计">
+<meta property="og:description" content="一款第三人称3D放置类闯关游戏，玩家通过预先放置道具应对障碍，控制小球在自动前进的格子地面上冲线获胜。共25关，采用黑白手绘风格。">
+<meta property="og:image" content="https://job-manager-artifacts-online.cdn.bcebos.com/prod/artifacts/79f8f03d-60ff-4bd6-bb1a-59f0e20d938a/app-cs8u4lyq5p1e_web_1783434524049.png">
+<meta property="og:url" content="app-cs8u4lyq5p1e.appmiaoda.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="3D小球跑酷游戏设计">
+<meta property="og:locale" content="zh_CN">
+
+<!-- Twitter Card 协议 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3D小球跑酷游戏设计">
+<meta name="twitter:description" content="一款第三人称3D放置类闯关游戏，玩家通过预先放置道具应对障碍，控制小球在自动前进的格子地面上冲线获胜。共25关，采用黑白手绘风格。">
+<meta name="twitter:image" content="https://job-manager-artifacts-online.cdn.bcebos.com/prod/artifacts/79f8f03d-60ff-4bd6-bb1a-59f0e20d938a/app-cs8u4lyq5p1e_web_1783434524049.png">
+<meta name="twitter:url" content="app-cs8u4lyq5p1e.appmiaoda.com/">
+<meta name="twitter:site" content="@MiaodaAI">
+
+<link rel="icon" href="https://job-manager-artifacts-online.cdn.bcebos.com/prod/artifacts/79f8f03d-60ff-4bd6-bb1a-59f0e20d938a/app-cs8u4lyq5p1e_web_1783434524049.png">
+
+
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="https://op-sourcecode.cdn.bcebos.com/source_code/projects/conv-cs8u4lyq5p1d_1783434507010/favicon.png">
+    <meta name="viewport" content="width=375, user-scalable=no, minimal-ui">
+    <script type="module" crossorigin="" src="https://op-sourcecode.cdn.bcebos.com/source_code/projects/conv-cs8u4lyq5p1d_1783434507010/assets/index-5-FIeZs8.js"></script>
+    <link rel="stylesheet" crossorigin="" href="https://op-sourcecode.cdn.bcebos.com/source_code/projects/conv-cs8u4lyq5p1d_1783434507010/assets/index-CUgodZlt.css">
+    <script>
+              (function () {
+                const redirect = new URLSearchParams(location.search).get('redirect');
+                if (redirect && redirect !== location.pathname) {
+                  history.replaceState(null, '', redirect);
+                }
+              })();
+            </script>
+    <link rel="stylesheet" id="fonts-code" href="https://miaoda-font.cdn.bcebos.com/static/font_v1/fonts-code.css">
+  <script src="https://resource-static.cdn.bcebos.com/runtime-inject/domain-static/online/1.0.79.1/static/miaoda-external.js?tm=1783515360510" async=""></script><style type="text/css">.md-h5 #md-h5-iframe {
+  position: absolute;
+  transform: translate(-50%);
+  transform-origin: top;
+  left: 50%;
+  width: 377px;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  overflow: auto;
+}
+
+#md-float-tools .ChatUI-Agent-Chat,
+#md-float-tools .ChatUI-Agent-Waker {
+  position: fixed;
+}
+
+@media (min-width: 768px) {
+  .md-h5 #md-h5-iframe {
+    top: 25px;
+    bottom: 25px;
+  }
+  .md-h5 #md-float-tools,
+  .md-h5 .taro-tabbar__container,
+  .md-h5 #root {
+    display: none;
+  }
+  .md-h5 .MobilePreview-Container-QRCode {
+    display: block;
+  }
+}
+
+#md-h5-iframe iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.MobilePreview {
+  width: 100%;
+  height: 100%;
+}
+
+.MobilePreview-Container-QRCode {
+  padding: 12px;
+  background: #f2f2f4;
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 188.5px - 24px);
+  width: 124px;
+  transform: translate(-100%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+
+.MobilePreview-Container-QRCode #md-qrcode {
+  display: block;
+  margin: 0;
+}
+
+.MobilePreview-Container-QRCode .code-desc {
+  margin-bottom: 12px;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #091221;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.MobilePreview-Container-QRCode .qrcode-container {
+  padding: 0;
+  width: 100px;
+}
+
+#md-float-tools .ChatBox-single-input {
+  color: #333;
+}
+
+.WebPage-Mobile-Scan-QrCode-Container-Runtime-Inject-JS {
+  padding: 12px;
+  background: #f7f7f9;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 188.5px - 24px);
+  transform: translate(-100%, -50%);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.WebPage-Mobile-Scan-QrCode-Container-Runtime-Inject-JS .WebPage-Mobile-Scan-QrCode-Title {
+  display: flex;
+  align-items: center;
+}
+
+.WebPage-Mobile-Scan-QrCode-Container-Runtime-Inject-JS .WebPage-Mobile-Scan-QrCode-Icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNNS4yNSA4LjA2MjVWNi4yNUM1LjI1IDUuNjk3NzIgNS42OTc3MiA1LjI1IDYuMjUgNS4yNUg4LjA2MjUiIHN0cm9rZT0iIzQ5NTM2NiIKICAgIHN0cm9rZS13aWR0aD0iMS4zIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIC8+CiAgPHBhdGggZD0iTTE1LjkzNzUgNS4yNUgxNy43NUMxOC4zMDIzIDUuMjUgMTguNzUgNS42OTc3MiAxOC43NSA2LjI1VjguMDYyNSIgc3Ryb2tlPSIjNDk1MzY2IgogICAgc3Ryb2tlLXdpZHRoPSIxLjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgLz4KICA8cGF0aCBkPSJNOC4wNjI1IDE4Ljc1SDYuMjVDNS42OTc3MiAxOC43NSA1LjI1IDE4LjMwMjMgNS4yNSAxNy43NVYxNS45Mzc1IiBzdHJva2U9IiM0OTUzNjYiCiAgICBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiAvPgogIDxwYXRoIGQ9Ik0xOC43NSAxNS45Mzc1VjE3Ljc1QzE4Ljc1IDE4LjMwMjMgMTguMzAyMyAxOC43NSAxNy43NSAxOC43NUgxNS45Mzc1IiBzdHJva2U9IiM0OTUzNjYiCiAgICBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiAvPgogIDxwYXRoIGQ9Ik01LjI1IDEySDE4Ljc1IiBzdHJva2U9IiM0OTUzNjYiIHN0cm9rZS13aWR0aD0iMS4zIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPgo=");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.WebPage-Mobile-Scan-QrCode-Container-Runtime-Inject-JS .WebPage-Mobile-Scan-QrCode-Text {
+  font-family: PingFang SC;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0px;
+  color: #000000;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.WebPage-Mobile-Scan-QrCode-Item-Container {
+  min-height: 0;
+  padding: 11px;
+  background: #fff;
+  box-sizing: border-box;
+  width: 132px;
+  height: 132px;
+  border-radius: 8px;
+  border: 1px solid #eaeef2;
+  margin-top: 9px;
+}
+
+.WebPage-Mobile-Scan-QrCode-Item-Container-MiniApp-QrCode-Container {
+  width: 132px;
+  height: 132px;
+  border-radius: 8px;
+  border: 1px solid #eaeef2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  margin-top: 12px;
+}
+
+.WebPage-Mobile-Scan-QrCode-Item-Container-MiniApp-QrCode {
+  width: 120px;
+  height: 120px;
+  user-drag: none;
+  -webkit-user-drag: none;
+}</style><style type="text/css">.privilege-mask {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  padding-left: 11px;
+  display: flex;
+  width: max-content;
+  align-items: center;
+  touch-action: none;
+  background-color: #1f1f1f;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  gap: 3px;
+  overflow: hidden;
+  user-select: none;
+  line-height: 16px;
+  height: 28px;
+  box-shadow: 0px 2px 20px 0px rgba(255, 255, 255, 0.0588235294);
+  border: 0.5px solid rgba(255, 255, 255, 0.1019607843);
+  z-index: 99999;
+  transition: background-color 0.2s ease;
+}
+.privilege-mask .privilege-label {
+  white-space: nowrap;
+}
+.privilege-mask .privilege-logo {
+  display: flex;
+  align-items: center;
+  width: 20px;
+}
+.privilege-mask .privilege-close {
+  padding-right: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.privilege-mask .privilege-close img {
+  width: 16px;
+}
+.privilege-mask:hover {
+  background-color: #4d4d4d;
+}</style><script>
+        window.__IS_EXPORTED__ = true;
+        window.__EXPORTED_LEVELS__ = [{"level_number":1,"name":"教程关1","cols":1,"rows":22,"speed":4,"items":["trampoline","trampoline","trampoline","trampoline"],"grid":[[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"obstacle"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"obstacle"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"obstacle"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"empty"}],[{"type":"finish"}]]},{"level_number":2,"name":"教程关2","cols":2,"rows":23,"speed":4,"items":["trampoline","left","left","right","right"],"grid":[[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"}],[{"type":"finish"},{"type":"finish"}]]},{"level_number":3,"name":"第3关","cols":3,"rows":25,"speed":4,"items":["trampoline","left","left","left","right","right","right"],"grid":[[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"},{"type":"obstacle"}],[{"type":"empty"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"finish"},{"type":"finish"},{"type":"finish"}]]},{"level_number":4,"name":"第4关","cols":3,"rows":24,"speed":4,"items":["trampoline","left","left","left","left","left","right","right","right","right","right"],"grid":[[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"finish"},{"type":"finish"},{"type":"finish"}]]},{"level_number":5,"name":"第5关","cols":3,"rows":33,"speed":4,"items":["trampoline","trampoline","left","left","left","left","left","left","left","right","right","right","right","right","right","right"],"grid":[[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"finish"}]]},{"level_number":6,"name":"第6关","cols":3,"rows":33,"speed":4,"items":["left","left","left","left","left","left","left","right","right","right","right","right","right","right"],"grid":[[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"moving_spike","moving":{"direction":"right","range":1,"speed":0}},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"moving_spike","moving":{"direction":"right","range":1,"speed":0}},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"moving_spike","moving":{"direction":"right","range":1,"speed":0}},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"moving_spike","moving":{"direction":"right","range":1,"speed":0}},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"moving_spike","moving":{"direction":"right","range":1,"speed":0}},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"obstacle"},{"type":"finish"},{"type":"empty"}]]},{"level_number":7,"name":"第7关","cols":3,"rows":33,"speed":4,"items":["trampoline","left","left","left","left","left","left","left","right","right","right","right","right","right","right"],"grid":[[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"moving_spike","moving":{"direction":"right","range":1,"speed":0}},{"type":"empty"}],[{"type":"empty"},{"type":"moving_spike","moving":{"direction":"right","range":1,"speed":0}},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"moving_spike","moving":{"direction":"right","range":1,"speed":0}},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"moving_spike","moving":{"direction":"right","range":1,"speed":0}},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"},{"type":"empty"}],[{"type":"finish"},{"type":"obstacle"},{"type":"empty"}]]},{"level_number":8,"name":"第8关","cols":4,"rows":33,"speed":4,"items":["trampoline","left","left","left","left","left","left","left","left","left","right","right","right","right","right","right","right","right","right"],"grid":[[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"empty"},{"type":"obstacle"}],[{"type":"empty"},{"type":"empty"},{"type":"empty"},{"type":"empty"}],[{"type":"empty"},{"type":"empty"},{"type":"obstacle"},{"type":"obstacle"}],[{"type":"obstacle"},{"type":"obstacle"},{"type":"finish"},{"type":"empty"}]]}];
+      </script></head>
+  <body class="dark:bg-gray-900 w-full h-full max-w-full max-h-full">
+    <div id="root" class="w-screen h-screen max-w-full max-h-full"></div>
+    <script id="md-click">
+              window.mdClick = e => {
+                const target = e.target;
+                const {href, target: linkTarget} = target.dataset;
+                const appType = 'web';
+                const isBlank = linkTarget === '_blank';
+
+                if (!href) return;
+
+                e.stopPropagation();
+                e.preventDefault();
+
+                // 外部链接或新窗口打开
+                if (isBlank || href.startsWith('http')) {
+                  let finalHref = href;
+                  if (appType === 'miniapp' && !href.startsWith('http')) {
+                    finalHref = window.location.href.split('#')[0] + '#/' + href;
+                  }
+                  window.open(finalHref, linkTarget || '_self');
+                  return;
+                }
+
+                // 内部路由跳转
+                const finalHref = href.startsWith('/') ? href : '/' + href;
+                if (appType === 'miniapp') {
+                  window.location.hash = finalHref;
+                  window.dispatchEvent(new HashChangeEvent('hashchange'));
+                } else {
+                  window.history.pushState({}, '', finalHref);
+                  window.dispatchEvent(new Event('popstate'));
+                }
+              };
+              document.addEventListener('click', window.mdClick, true);
+            </script>
+    <script id="iframe-onerror-catcher">
+              const observer = new PerformanceObserver((list) => {
+                list.getEntries().forEach((entry) => {
+                  if (entry.initiatorType === 'script' && entry.responseStatus >= 400) {
+                    window.parent.postMessage({
+                      type: "RESOURCE_LOAD_ERROR",
+                      name: entry.name,
+                      status: entry.responseStatus
+                    }, "*");
+                    console.warn('[iframe-error] Resource failed:', entry.name, entry.responseStatus);
+                  }
+                });
+              });
+              observer.observe({ type: 'resource', buffered: true });
+            </script>
+  <script>
+  (function () {
+    const script = document.createElement('script');
+    script.src = 'https://resource-static.cdn.bcebos.com/runtime-inject/domain-static/online/1.0.79.1/static/miaoda-external.js?tm=' + new Date().getTime();
+    script.async = true;
+    script.onload = function () {
+      window.miaoda.init({
+        appId: 'app-cs8u4lyq5p1e',
+        type: 'GAME',
+        share: {
+            title: "3D小球跑酷游戏设计",
+            desc: "一款第三人称3D放置类闯关游戏，玩家通过预先放置道具应对障碍，控制小球在自动前进的格子地面上冲线获胜。共25关，采用黑白手绘风格。",
+            image: "https://job-manager-artifacts-online.cdn.bcebos.com/prod/artifacts/79f8f03d-60ff-4bd6-bb1a-59f0e20d938a/app-cs8u4lyq5p1e_web_1783434524049.png"
+        }
+      });
+    };
+    document.head.appendChild(script);
+  })();
+</script>
+
+
+
+</body><div id="immersive-translate-browser-popup" style="all: initial"></div></html>
